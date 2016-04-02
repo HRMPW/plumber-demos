@@ -2,11 +2,10 @@ plumber([
         notifications: [
             onSuccess: true,
             configs: [
-                [
-                name: "email",
-                to: "abayer@cloudbees.com",
-                subject: "Plumber test build complete",
-                body: "Logic still to come to display result, etc"
+                email: [
+                    to: "abayer@cloudbees.com",
+                    subject: "Plumber test build complete",
+                    body: "Logic still to come to display result, etc"
                 ]
             ]
         ],
