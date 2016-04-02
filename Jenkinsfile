@@ -16,5 +16,7 @@ plumber([
                 script: "echo 'Hey look, running'"
             ]
             ]
-        ]
+        ],
+        debug: true
+        
         ])
