@@ -5,7 +5,7 @@ plumber([
             [
                 name: "first-phase",
                 action: [
-                    script: 'echo "I am an ${ANIMAL}"'
+                    script: 'echo "I am an animal of type ${ANIMAL}"'
                 ]
             ],
 
@@ -13,7 +13,7 @@ plumber([
                 name: "split-phases-1",
                 env: ["ANIMAL": "cat"],
                 action: [
-                    script: 'echo "I am an ${ANIMAL}"'
+                    script: 'echo "I am an animal of type ${ANIMAL}"'
                 ],
                 after: "first-phase"
             ],
@@ -22,7 +22,7 @@ plumber([
                 name: "split-phases-2",
                 env: ["ANIMAL": "dog"],
                 action: [
-                    script: 'echo "I am an ${ANIMAL}"'
+                    script: 'echo "I am an animal of type ${ANIMAL}"'
                 ],
                 after: "first-phase"
             ],
@@ -31,7 +31,7 @@ plumber([
                 name: "joined-phase",
                 env: ["ANIMAL": "monkey"],
                 action: [
-                    script: 'echo "I am an ${ANIMAL}"'
+                    script: 'echo "I am an animal of type ${ANIMAL}"'
                 ],
                 after: ["split-phases-1", "split-phases-2"]
             ]
