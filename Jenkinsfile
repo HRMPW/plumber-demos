@@ -1,19 +1,24 @@
 plumber([
-        notifications: [
-                onSuccess: true,
-                configs: [
-                        email: [
-                                to: "abayer@cloudbees.com",
-                                subject: "Plumber test build complete",
-                                body: "Logic still to come to display result, etc"
+        scm: [
+                [
+                        name: 'git',
+                        config: [
+                                url: "git://github.com/michaelneale/plumber.git",
+                                branch: "origin/master"
                         ]
                 ]
         ],
+
+        archiveDirs: "target/**",
+        
         phases: [
                 [
-                        name: "single-phase",
+                        name: "run-maven",
                         action: [
-                                script: "echo 'Hey look, running'"
+                                name: "plumberMvnDemo",
+                                mavenVersion: "maven3.3.3",
+                                javaVersion: "java8",
+                                goals: "clean install"
                         ]
                 ]
         ],
