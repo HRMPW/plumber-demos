@@ -18,7 +18,7 @@ plumber([
                 [
                         name: "last-phase",
                         action: [
-                            script: "echo 'Got to last phase."
+                            script: "echo 'Got to last phase.'"
                         ],
                         after: "input-phase"
                 ]
