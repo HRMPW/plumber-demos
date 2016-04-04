@@ -11,9 +11,9 @@ plumber([
             [
                 name: "joined-phase",
                 skipSCM: true,
-                unstash: "first-phase",
                 action: [
                     name: "plumberAnimal",
+                    stasher: "first-phase",
                     animal: "hippo"
                 ],
                 after: "split-phases-1"
@@ -22,10 +22,10 @@ plumber([
             [
                 name: "split-phases-1",
                 skipSCM: true,
-                unstash: "first-phase",
                 stashDirs: "animal.txt",
                 action: [
                     name: "plumberAnimal",
+                    stasher: "first-phase",
                     animal: "walrus"
                 ],
                 after: "first-phase"
