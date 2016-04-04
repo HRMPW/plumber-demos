@@ -4,7 +4,7 @@ plumber([
         phases: [
             [
                 name: "first-phase",
-                stashDirs: "names.txt"
+                stashDirs: "names.txt",
                 action: [
                         script: 'echo "I am stashing my file"'
                 ]
