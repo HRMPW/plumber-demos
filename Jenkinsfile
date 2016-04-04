@@ -3,14 +3,14 @@ plumber([
                 [
                         name: 'git',
                         config: [
-                                url: "git://github.com/michaelneale/plumber.git",
+                                url: "git://github.com/abayer/pipeline-action-plugin.git",
                                 branch: "origin/master"
                         ]
                 ]
         ],
 
         archiveDirs: "target/**",
-        
+
         phases: [
                 [
                         name: "run-maven",
