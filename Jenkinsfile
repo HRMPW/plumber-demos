@@ -17,7 +17,7 @@ plumber([
                     name: "plumberAnimal",
                     animal: "hippo"
                 ],
-                after: ["split-phases-1", "split-phases-2"]
+                after: ["split-phases-1"]
             ],
 
             [
