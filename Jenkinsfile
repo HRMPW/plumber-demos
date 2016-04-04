@@ -4,34 +4,41 @@ plumber([
         phases: [
             [
                 name: "first-phase",
+                stashDirs: "names.txt"
                 action: [
-                    script: 'echo "I am an animal of type ${ANIMAL}"'
+                        script: 'echo "I am stashing my file"'
                 ]
             ],
 
             [
                 name: "split-phases-1",
-                env: ["ANIMAL": "cat"],
+                skipSCM: true,
+                unstash: "first-phase",
                 action: [
-                    script: 'echo "I am an animal of type ${ANIMAL}"'
+                    name: "plumberAnimal",
+                    animal: "walrus"
                 ],
                 after: "first-phase"
             ],
 
             [
                 name: "split-phases-2",
-                env: ["ANIMAL": "dog"],
+                skipSCM: true,
+                unstash: "first-phase",
                 action: [
-                    script: 'echo "I am an animal of type ${ANIMAL}"'
+                    name: "plumberAnimal",
+                    animal: "cheetah"
                 ],
                 after: "first-phase"
             ],
 
             [
                 name: "joined-phase",
-                env: ["ANIMAL": "monkey"],
+                skipSCM: true,
+                unstash: "first-phase",
                 action: [
-                    script: 'echo "I am an animal of type ${ANIMAL}"'
+                    name: "plumberAnimal",
+                    animal: "hippo"
                 ],
                 after: ["split-phases-1", "split-phases-2"]
             ]
