@@ -29,7 +29,7 @@ plumber([
                     animal: "walrus"
                 ],
                 after: "first-phase"
-            ]
+            ],
             
             [
                 name: "split-phases-2",
