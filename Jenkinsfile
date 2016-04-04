@@ -16,7 +16,7 @@ plumber([
                     stasher: "first-phase",
                     animal: "hippo"
                 ],
-                after: "split-phases-1"
+                after: ["split-phases-1", "split-phases-2"]
             ],
 
             [
@@ -27,6 +27,18 @@ plumber([
                     name: "plumberAnimal",
                     stasher: "first-phase",
                     animal: "walrus"
+                ],
+                after: "first-phase"
+            ]
+            
+            [
+                name: "split-phases-2",
+                skipSCM: true,
+                stashDirs: "animal.txt",
+                action: [
+                    name: "plumberAnimal",
+                    stasher: "first-phase",
+                    animal: "cheetah"
                 ],
                 after: "first-phase"
             ]
