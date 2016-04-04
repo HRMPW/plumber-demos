@@ -16,14 +16,14 @@ plumber([
                     name: "plumberAnimal",
                     animal: "hippo"
                 ],
-                after: ["split-phases-1"]
+                after: "split-phases-1"
             ],
 
             [
                 name: "split-phases-1",
                 skipSCM: true,
                 unstash: "first-phase",
-                stashDirs: "animal.txt"
+                stashDirs: "animal.txt",
                 action: [
                     name: "plumberAnimal",
                     animal: "walrus"
