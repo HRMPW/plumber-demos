@@ -3,7 +3,7 @@ plumber([
                 onSuccess: true,
                 configs: [
                         email: [
-                                to: "abayer@cloudbees.com",
+                                to: "pwolf@cloudbees.com",
                                 subject: "Plumber test build complete",
                                 body: "Logic still to come to display result, etc"
                         ]
