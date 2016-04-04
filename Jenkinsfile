@@ -1,12 +1,12 @@
 plumber([
-        env: ["ANIMAL": "chicken"],
         
         phases: [
             [
                 name: "first-phase",
-                stashDirs: "names.txt",
+                stashDirs: "animal.txt",
                 action: [
                         script: 'echo "I am stashing my file"'
+                        script: 'cat "tiger" > animal.txt'
                 ]
             ],
             [
