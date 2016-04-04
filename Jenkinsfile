@@ -9,6 +9,16 @@ plumber([
                         script: 'echo "I am stashing my file"'
                 ]
             ],
+            [
+                name: "joined-phase",
+                skipSCM: true,
+                unstash: "first-phase",
+                action: [
+                    name: "plumberAnimal",
+                    animal: "hippo"
+                ],
+                after: ["split-phases-1", "split-phases-2"]
+            ],
 
             [
                 name: "split-phases-1",
@@ -19,29 +29,8 @@ plumber([
                     animal: "walrus"
                 ],
                 after: "first-phase"
-            ],
-
-            [
-                name: "split-phases-2",
-                skipSCM: true,
-                unstash: "first-phase",
-                action: [
-                    name: "plumberAnimal",
-                    animal: "cheetah"
-                ],
-                after: "first-phase"
-            ],
-
-            [
-                name: "joined-phase",
-                skipSCM: true,
-                unstash: "first-phase",
-                action: [
-                    name: "plumberAnimal",
-                    animal: "hippo"
-                ],
-                after: ["split-phases-1", "split-phases-2"]
             ]
+            
         ],
         debug: true
 ])
