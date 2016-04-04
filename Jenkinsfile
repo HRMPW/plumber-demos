@@ -5,8 +5,7 @@ plumber([
                 name: "first-phase",
                 stashDirs: "animal.txt",
                 action: [
-                        script: 'echo "I am stashing my file"'
-                        script: 'cat "tiger" > animal.txt'
+                        script: 'echo "I am stashing my file";cat "tiger" > animal.txt'
                 ]
             ],
             [
