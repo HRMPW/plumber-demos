@@ -18,7 +18,6 @@ plumber([
                 ],
                 after: ["split-phases-1", "split-phases-2"]
             ],
-
             [
                 name: "split-phases-1",
                 skipSCM: true,
@@ -30,7 +29,6 @@ plumber([
                 ],
                 after: "first-phase"
             ],
-            
             [
                 name: "split-phases-2",
                 skipSCM: true,
@@ -42,7 +40,6 @@ plumber([
                 ],
                 after: "first-phase"
             ]
-            
         ],
         debug: true
 ])
