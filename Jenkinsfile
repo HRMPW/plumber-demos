@@ -5,36 +5,25 @@ plumber([
             [
                 name: "first-phase",
                 action: [
-                    script: 'echo "I am an animal of type ${ANIMAL}"'
+                    name: "inlineDemo",
+                    goals: "eat hot dogs"
                 ]
-            ],
-
-            [
-                name: "split-phases-1",
-                env: ["ANIMAL": "cat"],
-                action: [
-                    script: 'echo "I am an animal of type ${ANIMAL}"'
-                ],
-                after: "first-phase"
-            ],
-
-            [
-                name: "split-phases-2",
-                env: ["ANIMAL": "dog"],
-                action: [
-                    script: 'echo "I am an animal of type ${ANIMAL}"'
-                ],
-                after: "first-phase"
-            ],
-
-            [
-                name: "joined-phase",
-                env: ["ANIMAL": "monkey"],
-                action: [
-                    script: 'echo "I am an animal of type ${ANIMAL}"'
-                ],
-                after: ["split-phases-1", "split-phases-2"]
             ]
         ],
         debug: true
 ])
+
+import io.jenkins.plugins.pipelineaction.PipelineAction
+import io.jenkins.plugins.pipelineaction.actions.AbstractPipelineActionScript
+import org.jenkinsci.plugins.workflow.cps.CpsScript
+
+class inlineDemo extends AbstractPipelineActionScript {
+    public inlineDemo(CpsScript script, PipelineAction actionDefinition) {
+        super(script, actionDefinition)
+    }
+    
+    def call(Map args) {
+            script.sh "echo ${args.goals}"
+    }
+
+}
