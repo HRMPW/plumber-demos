@@ -1,3 +1,19 @@
+import io.jenkins.plugins.pipelineaction.PipelineAction
+import io.jenkins.plugins.pipelineaction.actions.AbstractPipelineActionScript
+import org.jenkinsci.plugins.workflow.cps.CpsScript
+
+class inlineDemo extends AbstractPipelineActionScript {
+    public inlineDemo(CpsScript script, PipelineAction actionDefinition) {
+        super(script, actionDefinition)
+    }
+    
+    def call(Map args) {
+            script.sh "echo ${args.goals}"
+    }
+
+}
+
+
 plumber([
         env: ["ANIMAL": "chicken"],
         
@@ -13,17 +29,3 @@ plumber([
         debug: true
 ])
 
-import io.jenkins.plugins.pipelineaction.PipelineAction
-import io.jenkins.plugins.pipelineaction.actions.AbstractPipelineActionScript
-import org.jenkinsci.plugins.workflow.cps.CpsScript
-
-class inlineDemo extends AbstractPipelineActionScript {
-    public inlineDemo(CpsScript script, PipelineAction actionDefinition) {
-        super(script, actionDefinition)
-    }
-    
-    def call(Map args) {
-            script.sh "echo ${args.goals}"
-    }
-
-}
